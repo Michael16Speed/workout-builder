@@ -7,15 +7,6 @@ document.getElementById('workoutForm').addEventListener('submit', function(event
     const weight = parseFloat(document.getElementById('weight').value);
     const bodyFat = parseFloat(document.getElementById('bodyFat').value);
     const trainingLevel = document.getElementById('trainingLevel').value;
-    const steps = parseInt(document.getElementById('steps').value);
-    const calories = parseInt(document.getElementById('calories').value);
-    const macros = document.getElementById('macros').value.split('/').map(Number);
-
-    // Basic validation for macros
-    if (macros.length !== 3 || macros.some(isNaN)) {
-        alert('Please enter valid macronutrient ratios (e.g., 40/30/30).');
-        return;
-    }
 
     // Generate a basic workout plan based on inputs
     let workoutPlan = 'Here is your customized workout plan:\n\n';
@@ -36,11 +27,6 @@ document.getElementById('workoutForm').addEventListener('submit', function(event
         workoutPlan += ' - Bench Press: 5 sets of 5 reps\n';
         workoutPlan += ' - Overhead Press: 4 sets of 6 reps\n';
         workoutPlan += ' - Tricep Dips: 4 sets of 10 reps\n';
-    }
-
-    // Example logic for adding cardio
-    if (steps > 10000) {
-        workoutPlan += '\nAdd extra cardio: 30 minutes of running or cycling.\n';
     }
 
     // Display the workout plan
